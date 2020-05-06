@@ -1,3 +1,4 @@
+#lang sicp
 ; 1.1.4 Compound Procedures
 
 (define (sum-of-squares x y)
