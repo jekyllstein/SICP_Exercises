@@ -137,7 +137,7 @@
           guess
           (sqrt-iter (improve guess x) x)))
 ;What happens when Alyssa attempts to use this to compute square roots? Explain.
-; Since new-if is a regular procedure it will be expended into 3 arguments before being passed into the cond procedure.  Since the else-clause keeps expanding indefinitely the procedure will never stop.  The orinal function depends on the special nature of the cond procedure to stop evaluating arguments the first time it finds a true condition.
+; Since new-if is a regular procedure it will be expended into 3 arguments before being passed into the cond procedure.  Since the else-clause keeps expanding indefinitely the procedure will never stop.  The original function depends on the special nature of the cond procedure to stop evaluating arguments the first time it finds a true condition.
 
 ;Exercise 1.7: The good-enough? test used in computing square roots will not be very effective for finding the square roots of very small numbers. Also, in real computers, arithmetic operations are almost always performed with limited precision. This makes our test inadequate for very large numbers. Explain these statements, with examples showing how the test fails for small and large numbers. An alternative strategy for implementing good-enough? is to watch how guess changes from one iteration to the next and to stop when the change is a very small fraction of the guess. Design a square-root procedure that uses this kind of end test. Does this work better for small and large numbers?
 ; good-enough? currently checks if the square of the guess is within a set value of the actual value to be square rooted.  If the value itself is of equal size to that tolerance then the procedure will terminate with a guess that is off from the true value by any large percentage value.  For very large numbers with limited precision, a value extremely close to the true answer might never be satisfied because numerical noise in the decimal places will never allow a 0.001 tolerance to be achieved.  For example:
@@ -171,8 +171,8 @@
 ;Value: 1.0000001427889285e62
 ; doesn't time out
 
-;fact that if y is an approximation to the cube root of x, then a better approximation is given by the value
-;x/y2+2y3.
+;Newton's method for cube roots is based on the fact that if y is an approximation to the cube root of x, then a better approximation is given by the value
+;(x/y^2+2y)/3.
 ;Use this formula to implement a cube-root procedure analogous to the square-root procedure.
 
 (define (improvecube guess x)
