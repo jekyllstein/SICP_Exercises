@@ -185,4 +185,11 @@
 (define (cbrt x)
   (cbrt-iter 1.0 x))
 
+(cbrt 8)
+;Value: 2.000000000012062
 
+(cbrt 1e150)
+;Value: 1.000000000012699e50
+
+(cbrt 1e-75)
+;Value: 1.0000005195680928e-25
